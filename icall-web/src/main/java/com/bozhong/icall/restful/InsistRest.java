@@ -10,7 +10,6 @@ import com.bozhong.insist.module.ServiceMeta;
 import com.bozhong.insist.zk.InsistZkClient;
 import com.sun.jersey.spi.resource.Singleton;
 import com.yx.eweb.main.EWebServletContext;
-import org.apache.zookeeper.KeeperException;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 
@@ -20,7 +19,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,18 +29,6 @@ import java.util.List;
 @Controller
 @Path("insist")
 public class InsistRest {
-
-    static {
-        try {
-            InsistZkClient.getInstance().connect(System.getProperty("insist.zkHosts"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (KeeperException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * 请求参数：{

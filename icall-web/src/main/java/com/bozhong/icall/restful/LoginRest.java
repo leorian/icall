@@ -7,6 +7,7 @@ import com.bozhong.config.exception.ConfigCenterLoginCodeEnum;
 import com.bozhong.icall.common.ICallConstants;
 import com.bozhong.icall.common.ICallErrorEnum;
 import com.bozhong.icall.util.RSAHelper;
+import com.bozhong.insist.zk.InsistZkClient;
 import com.bozhong.myredis.MyRedisClusterForHessian;
 import com.google.gson.Gson;
 import com.novell.ldap.LDAPException;
@@ -15,6 +16,7 @@ import com.yx.eweb.main.EWebRequestDTO;
 import com.yx.eweb.main.EWebServletContext;
 import com.zhicall.core.util.MD5;
 import org.apache.log4j.Logger;
+import org.apache.zookeeper.KeeperException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import sun.misc.BASE64Decoder;
@@ -26,6 +28,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.KeyPair;
 import java.security.PrivateKey;
@@ -47,6 +50,18 @@ public class LoginRest {
 
     @Autowired
     private MyRedisClusterForHessian myRedisClusterForHessian;
+
+    static {
+        try {
+            InsistZkClient.getInstance().connect(System.getProperty("insist.zkHosts"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        }
+    }
 
     @POST
     @Path("generatePublicKey")
