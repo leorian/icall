@@ -12,6 +12,6 @@ public class WebSettingParam {
     @AppSwitch(type = "string", desc = "部门")
     public static String DEPARTMENT = "云平台部";
     @AppSwitch(type = "string", desc = "网站标题")
-    public static String HTML_TITLE = "INSIST-RPC查看平台";
+    public static String HTML_TITLE = "INSIST-RPC动态调用";
 
 }
