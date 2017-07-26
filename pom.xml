@@ -636,7 +636,7 @@
             <dependency>
                 <groupId>com.bozhong</groupId>
                 <artifactId>insist</artifactId>
-                <version>2.0.3</version>
+                <version>3.0.0</version>
             </dependency>
 
         </dependencies>
