@@ -51,17 +51,17 @@ public class LoginRest {
     @Autowired
     private MyRedisClusterForHessian myRedisClusterForHessian;
 
-    static {
-        try {
-            InsistZkClient.getInstance().connect(System.getProperty("insist.zkHosts"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (KeeperException e) {
-            e.printStackTrace();
-        }
-    }
+//    static {
+//        try {
+//            InsistZkClient.getInstance().connect(System.getProperty("insist.zkHosts"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (KeeperException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @POST
     @Path("generatePublicKey")

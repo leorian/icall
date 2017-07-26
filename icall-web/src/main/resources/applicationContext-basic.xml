@@ -5,12 +5,15 @@
         xmlns:p="http://www.springframework.org/schema/p"
         xmlns:context="http://www.springframework.org/schema/context"
         xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:insist="http://www.317hu.com/insist"
         xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.0.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    http://www.317hu.com/insist
+    http://www.317hu.com/insist/insist.xsd">
 
     <bean class="com.bozhong.config.common.ConfigSetPropertyHolder" init-method="init">
         <property name="appId" value="29"/>
@@ -46,6 +49,16 @@
 
     <import resource="config/spring/config-spring.xml"/>
     <import resource="config/spring/pipeline-spring.xml"/>
-
+    <bean id="testService" class="com.bozhong.icall.rpc.impl.TestServiceImpl"></bean>
+    <bean id="rpcService" class="com.bozhong.icall.rpc.impl.InsistRpcRemoteServiceImpl"></bean>
+    <insist:provider id="testServiceInsist"
+                     interface="com.bozhong.icall.rpc.TestService"
+                     version="1.0.0.daily"
+                     group="test"
+                     ref="testService"
+                     serviceDesc="user center interface"/>
+    <insist:provider id="rpcServiceInsist" interface="com.bozhong.icall.rpc.RpcService"
+                     version="1.0.0.daily" group="test"
+                     ref="rpcService"/>
     <context:component-scan base-package="com.bozhong.icall.restful,com.bozhong.icall.view.*"/>
 </beans>

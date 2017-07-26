@@ -4,7 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.bozhong.common.util.ResultMessageBuilder;
 import com.bozhong.icall.common.ICallErrorEnum;
 import com.bozhong.icall.common.ICallPath;
+import com.bozhong.icall.rpc.RpcService;
+import com.bozhong.icall.rpc.impl.InsistRpcLocalServiceImpl;
 import com.sun.jersey.spi.resource.Singleton;
+import com.yx.eweb.main.EWebServletContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 
@@ -16,6 +20,7 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xiezg@317hu.com on 2017/7/26 0026.
@@ -25,6 +30,7 @@ import java.util.List;
 @Singleton
 @Path(ICallPath.PATH_PREFIX + "/{module}")
 public class WebDynamicRest {
+
 
     /**
      * POST动态调用
@@ -124,13 +130,21 @@ public class WebDynamicRest {
         iCallPath.setService(paths[0]);
         iCallPath.setGroup(paths[1]);
         iCallPath.setVersion(paths[2]);
-        if (paths.length==4) {
+        if (paths.length == 4) {
             iCallPath.setMethod(paths[3]);
         } else {
             iCallPath.setMethod(ICallPath.DEFAULT_METHOD);
         }
 
         System.out.println(JSON.toJSONString(iCallPath));
+        Map parameterMap = EWebServletContext.getRequest().getParameterMap();
+
+        try {
+            RpcService rpcService = new InsistRpcLocalServiceImpl();
+            rpcService.dynamicalRemoteCall(iCallPath, parameterMap);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return "ddd";
     }
 }

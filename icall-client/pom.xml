@@ -201,6 +201,10 @@
             <groupId>com.bozhong</groupId>
             <artifactId>switch-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.bozhong</groupId>
+            <artifactId>insist</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
