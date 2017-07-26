@@ -57,7 +57,7 @@
 <script>
     $(function () {
         var publicKey = null;
-        $.post("${ctxPath}/imanager/login/generatePublicKey", null, function (result) {
+        $.post("${ctxPath}/icall/login/generatePublicKey", null, function (result) {
             if (result.success) {
                 publicKey = result.data;
             }
@@ -77,7 +77,7 @@
                     '<a href="#" class="close" data-dismiss="alert"></a>' +
                     '<span>' + "正在登录，请等待..." + '</span>' +
                     '</div>');
-            $.post("${ctxPath}/imanager/login/checkLogin", {
+            $.post("${ctxPath}/icall/login/checkLogin", {
                 userName: userName,
                 password: encrypt.encrypt(password)
             }, function (result) {

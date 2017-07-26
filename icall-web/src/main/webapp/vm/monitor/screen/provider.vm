@@ -142,7 +142,7 @@
 
         //服务列表查询事件
         function providerList() {
-            $.post("${ctxPath}/imanager/insist/providerList", {
+            $.post("${ctxPath}/icall/insist/providerList", {
                 "serviceName": $("#serviceName").val(),
                 "group": $("#group").val(),
                 "ip": $("#ip").val()
