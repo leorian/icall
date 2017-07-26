@@ -8,7 +8,8 @@ import com.alibaba.fastjson.JSON;
 public enum ICallErrorEnum {
 
     E10001("E10001", "Login Failure Public Private Key Expire", "用户密码公钥私钥加密策略过期，请重新进入登录页面！"),
-    E10002("E10002", "Group Empty!", "分组为空！");
+    E10002("E10002", "Group Empty!", "分组为空！"),
+    E10003("E10003", "Request Url Path Not MatchedQ!", "请求路径不匹配！");
 
     private String error;
 
