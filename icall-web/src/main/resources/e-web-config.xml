@@ -11,6 +11,7 @@
         <ignore page="/login/checkLogin"></ignore>
         <ignore page="/monitor/login.htm"></ignore>
         <ignore page="/insist/zkHosts"></ignore>
+        <ignore regular="/api"></ignore>
     </ignores>
     <notIgnores>
         <notIgnore regular="^[\w\W]*/icall/[\w\W]*$"></notIgnore>

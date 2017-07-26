@@ -17,7 +17,7 @@ import javax.ws.rs.core.UriInfo;
  */
 @Controller
 @Singleton
-@Path("{module}")
+@Path("api/{module}")
 public class WebDynamicRest {
 
     /**
