@@ -2,7 +2,7 @@ package com.bozhong.imanager.pipeline;
 
 import com.bozhong.common.util.StringUtil;
 import com.bozhong.config.util.CookiesUtil;
-import com.bozhong.imanager.common.ImanagerConstants;
+import com.bozhong.imanager.common.ICallConstants;
 import com.bozhong.imanager.common.WebSettingParam;
 import com.bozhong.myredis.MyRedisClusterForHessian;
 import com.yx.eweb.main.PipeLineInter;
@@ -41,7 +41,7 @@ public class SecurityPipeLine implements PipeLineInter {
         }
 
         String token = tokenCookie.getValue();
-        String uId = myRedisClusterForHessian.getForStr(ImanagerConstants.IMANAGER_CENTER_USERNAME_PREFIX + token);
+        String uId = myRedisClusterForHessian.getForStr(ICallConstants.ICALL_CENTER_USERNAME_PREFIX + token);
         if (StringUtil.isNotBlank(uId)) {
             httpServletRequest.setAttribute("uId", uId);
             return true;

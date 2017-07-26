@@ -13,7 +13,7 @@
         <ignore page="/insist/zkHosts"></ignore>
     </ignores>
     <notIgnores>
-        <notIgnore regular="^[\w\W]*/imanager/[\w\W]*$"></notIgnore>
+        <notIgnore regular="^[\w\W]*/icall/[\w\W]*$"></notIgnore>
     </notIgnores>
     <errorPages>
         <errorPage page="/error/error.htm" errorCode="default" default="true"></errorPage>

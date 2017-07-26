@@ -124,7 +124,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>JerseyRESTService</servlet-name>
-        <url-pattern>/imanager/*</url-pattern>
+        <url-pattern>/icall/*</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

@@ -1,7 +1,7 @@
 package com.bozhong.imanager.view.monitor.module.screen;
 
 import com.bozhong.config.util.CookiesUtil;
-import com.bozhong.imanager.common.ImanagerConstants;
+import com.bozhong.imanager.common.ICallConstants;
 import com.bozhong.imanager.common.WebSettingParam;
 import com.bozhong.myredis.MyRedisClusterForHessian;
 import com.yx.eweb.main.EWebContext;
@@ -37,7 +37,7 @@ public class Login implements ScreenInter {
             tokenCookie.setPath("/");
             tokenCookie.setMaxAge(0);
             response.addCookie(tokenCookie);
-            myRedisClusterForHessian.delForStr(ImanagerConstants.IMANAGER_CENTER_USERNAME_PREFIX + token);
+            myRedisClusterForHessian.delForStr(ICallConstants.ICALL_CENTER_USERNAME_PREFIX + token);
         }
 
     }
