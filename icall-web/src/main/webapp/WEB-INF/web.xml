@@ -50,7 +50,7 @@
 
     <filter>
         <filter-name>exception</filter-name>
-        <filter-class>com.bozhong.imanager.filter.ExceptionFilter</filter-class>
+        <filter-class>com.bozhong.icall.filter.ExceptionFilter</filter-class>
     </filter>
 
     <filter-mapping>

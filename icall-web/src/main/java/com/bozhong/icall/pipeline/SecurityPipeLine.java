@@ -1,9 +1,9 @@
-package com.bozhong.imanager.pipeline;
+package com.bozhong.icall.pipeline;
 
 import com.bozhong.common.util.StringUtil;
 import com.bozhong.config.util.CookiesUtil;
-import com.bozhong.imanager.common.ICallConstants;
-import com.bozhong.imanager.common.WebSettingParam;
+import com.bozhong.icall.common.ICallConstants;
+import com.bozhong.icall.common.WebSettingParam;
 import com.bozhong.myredis.MyRedisClusterForHessian;
 import com.yx.eweb.main.PipeLineInter;
 import org.apache.log4j.Logger;

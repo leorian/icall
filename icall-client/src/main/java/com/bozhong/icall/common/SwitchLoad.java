@@ -1,4 +1,4 @@
-package com.bozhong.imanager.common;
+package com.bozhong.icall.common;
 
 import com.bozhong.myswitch.common.SwitchLogger;
 import com.bozhong.myswitch.core.SwitchRegister;

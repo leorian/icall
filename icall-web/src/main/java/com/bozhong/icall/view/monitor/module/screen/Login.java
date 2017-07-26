@@ -1,8 +1,8 @@
-package com.bozhong.imanager.view.monitor.module.screen;
+package com.bozhong.icall.view.monitor.module.screen;
 
 import com.bozhong.config.util.CookiesUtil;
-import com.bozhong.imanager.common.ICallConstants;
-import com.bozhong.imanager.common.WebSettingParam;
+import com.bozhong.icall.common.ICallConstants;
+import com.bozhong.icall.common.WebSettingParam;
 import com.bozhong.myredis.MyRedisClusterForHessian;
 import com.yx.eweb.main.EWebContext;
 import com.yx.eweb.main.ScreenInter;

@@ -7,6 +7,6 @@
        		http://www.taobao.com/hsf
        		http://www.taobao.com/hsf/hsf.xsd" default-autowire="byName">
 
-    <bean id="securityPipeLine" class="com.bozhong.imanager.pipeline.SecurityPipeLine"/>
+    <bean id="securityPipeLine" class="com.bozhong.icall.pipeline.SecurityPipeLine"/>
 
 </beans>

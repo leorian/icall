@@ -1,4 +1,4 @@
-package com.bozhong.imanager.util;
+package com.bozhong.icall.util;
 
 import org.apache.log4j.Logger;
 import sun.misc.BASE64Decoder;

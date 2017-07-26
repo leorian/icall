@@ -1,12 +1,12 @@
-package com.bozhong.imanager.restful;
+package com.bozhong.icall.restful;
 
 import com.bozhong.common.util.ResultMessageBuilder;
 import com.bozhong.common.util.StringUtil;
 import com.bozhong.config.common.LDAPConnectionConfig;
 import com.bozhong.config.exception.ConfigCenterLoginCodeEnum;
-import com.bozhong.imanager.common.ICallConstants;
-import com.bozhong.imanager.common.ImanagerErrorEnum;
-import com.bozhong.imanager.util.RSAHelper;
+import com.bozhong.icall.common.ICallConstants;
+import com.bozhong.icall.common.ImanagerErrorEnum;
+import com.bozhong.icall.util.RSAHelper;
 import com.bozhong.myredis.MyRedisClusterForHessian;
 import com.google.gson.Gson;
 import com.novell.ldap.LDAPException;

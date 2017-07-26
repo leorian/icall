@@ -1,9 +1,9 @@
-package com.bozhong.imanager.filter;
+package com.bozhong.icall.filter;
 
 
 import com.bozhong.common.util.ResultMessageBuilder;
-import com.bozhong.imanager.common.ImanagerLogger;
-import com.bozhong.imanager.util.ImanagerException;
+import com.bozhong.icall.common.ImanagerLogger;
+import com.bozhong.icall.util.ImanagerException;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

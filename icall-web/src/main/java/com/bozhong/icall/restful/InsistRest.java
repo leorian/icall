@@ -1,9 +1,9 @@
-package com.bozhong.imanager.restful;
+package com.bozhong.icall.restful;
 
 import com.bozhong.common.util.ResultMessageBuilder;
 import com.bozhong.common.util.StringUtil;
-import com.bozhong.imanager.common.ImanagerErrorEnum;
-import com.bozhong.imanager.tools.ImanagerUtil;
+import com.bozhong.icall.common.ImanagerErrorEnum;
+import com.bozhong.icall.tools.ImanagerUtil;
 import com.bozhong.insist.common.InsistUtil;
 import com.bozhong.insist.consumer.InsistConsumerMeta;
 import com.bozhong.insist.module.ServiceMeta;

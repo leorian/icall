@@ -16,7 +16,7 @@
         <property name="appId" value="29"/>
     </bean>
 
-    <bean class="com.bozhong.imanager.common.SwitchLoad" init-method="init">
+    <bean class="com.bozhong.icall.common.SwitchLoad" init-method="init">
         <property name="appId" value="29"/>
         <property name="zkHosts" value="${switch.zkHosts}"/>
     </bean>
@@ -31,7 +31,7 @@
     <bean id="unifiedLogAdvisorPointCut" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
         <property name="patterns">
             <list>
-                <value>com.bozhong.imanager.service.*</value>  <!-- 业务实现方法名匹配 -->
+                <value>com.bozhong.icall.service.*</value>  <!-- 业务实现方法名匹配 -->
             </list>
         </property>
         <property name="advice">
@@ -47,5 +47,5 @@
     <import resource="config/spring/config-spring.xml"/>
     <import resource="config/spring/pipeline-spring.xml"/>
 
-    <context:component-scan base-package="com.bozhong.imanager.restful,com.bozhong.imanager.view.*"/>
+    <context:component-scan base-package="com.bozhong.icall.restful,com.bozhong.icall.view.*"/>
 </beans>

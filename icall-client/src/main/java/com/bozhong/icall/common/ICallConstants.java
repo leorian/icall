@@ -1,4 +1,4 @@
-package com.bozhong.imanager.common;
+package com.bozhong.icall.common;
 
 /**
  * Created by xiezg@317hu.com on 2017/4/25 0025.
