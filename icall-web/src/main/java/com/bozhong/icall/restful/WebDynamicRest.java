@@ -21,6 +21,23 @@ import javax.ws.rs.core.UriInfo;
 public class WebDynamicRest {
 
     /**
+     * POST动态调用
+     * {service}:服务类全路径
+     * {group}:分组
+     * {version}:版本
+     *
+     * @param request
+     * @param uriInfo
+     * @param httpHeaders
+     * @return
+     */
+    @POST
+    @Path("{service}/{group}/{version}")
+    public String iCallPostWithNotMethod(@Context Request request, @Context UriInfo uriInfo, @Context HttpHeaders httpHeaders) {
+        return iCallService(request, uriInfo, httpHeaders);
+    }
+
+    /**
      * POST请求动态调用
      * {service}:服务类全路径名称
      * {group}:分组
@@ -34,7 +51,24 @@ public class WebDynamicRest {
      */
     @POST
     @Path("{service}/{group}/{version}/{method}")
-    public String iCallPost(@Context Request request, @Context UriInfo uriInfo, @Context HttpHeaders httpHeaders) {
+    public String iCallPostWithMethod(@Context Request request, @Context UriInfo uriInfo, @Context HttpHeaders httpHeaders) {
+        return iCallService(request, uriInfo, httpHeaders);
+    }
+
+    /**
+     * GET请求动态调用
+     * {service}:服务类名全路径名称
+     * {group}:分组
+     * {version}:版本
+     *
+     * @param request
+     * @param uriInfo
+     * @param httpHeaders
+     * @return
+     */
+    @GET
+    @Path("{service}/{group}/{version}")
+    public String iCallGetWithNotMethod(@Context Request request, @Context UriInfo uriInfo, @Context HttpHeaders httpHeaders) {
         return iCallService(request, uriInfo, httpHeaders);
     }
 
@@ -52,7 +86,7 @@ public class WebDynamicRest {
      */
     @GET
     @Path("{service}/{group}/{version}/{method}")
-    public String iCallGet(@Context Request request, @Context UriInfo uriInfo, @Context HttpHeaders httpHeaders) {
+    public String iCallGetMethod(@Context Request request, @Context UriInfo uriInfo, @Context HttpHeaders httpHeaders) {
         return iCallService(request, uriInfo, httpHeaders);
     }
 
@@ -65,6 +99,7 @@ public class WebDynamicRest {
      * @return
      */
     private String iCallService(Request request, UriInfo uriInfo, HttpHeaders httpHeaders) {
+        System.out.println(uriInfo.getMatchedURIs());
         return "ddd";
     }
 }
