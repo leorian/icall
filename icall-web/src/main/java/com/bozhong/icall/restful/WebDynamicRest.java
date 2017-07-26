@@ -8,7 +8,6 @@ import com.bozhong.icall.rpc.RpcService;
 import com.bozhong.icall.rpc.impl.InsistRpcLocalServiceImpl;
 import com.sun.jersey.spi.resource.Singleton;
 import com.yx.eweb.main.EWebServletContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 
@@ -138,13 +137,14 @@ public class WebDynamicRest {
 
         System.out.println(JSON.toJSONString(iCallPath));
         Map parameterMap = EWebServletContext.getRequest().getParameterMap();
-
+        Object object = null;
+        RpcService rpcService = new InsistRpcLocalServiceImpl();
         try {
-            RpcService rpcService = new InsistRpcLocalServiceImpl();
-            rpcService.dynamicalRemoteCall(iCallPath, parameterMap);
+            object = rpcService.dynamicalRemoteCall(iCallPath, parameterMap);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return "ddd";
+
+        return JSON.toJSONString(object);
     }
 }
