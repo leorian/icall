@@ -12,11 +12,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 /**
  * Created by xiezg@317hu.com on 2017/4/25 0025.
  */
 public class SecurityPipeLine implements PipeLineInter {
+    public static final String pattern = "^[\\w\\W]*/icall/api/[\\w\\W]*$";
 
     private MyRedisClusterForHessian myRedisClusterForHessian;
 
@@ -28,8 +30,14 @@ public class SecurityPipeLine implements PipeLineInter {
         httpServletRequest.setAttribute("html_title", WebSettingParam.HTML_TITLE);
         httpServletRequest.setAttribute("switch_crop", WebSettingParam.CORP);
         httpServletRequest.setAttribute("switch_department", WebSettingParam.DEPARTMENT);
-        Cookie tokenCookie = CookiesUtil.getCookieByName(httpServletRequest, "document_token");
+        Cookie tokenCookie = CookiesUtil.getCookieByName(httpServletRequest, "iCall_token");
         if (tokenCookie == null) {
+            //动态链接调用过滤
+            boolean isMatch = Pattern.matches(pattern, httpServletRequest.getRequestURL());
+            if (isMatch) {
+                return true;
+            }
+
             try {
                 httpServletResponse.sendRedirect(httpServletRequest.getContextPath() +
                         "/monitor/login.htm");

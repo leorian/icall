@@ -65,6 +65,6 @@ public class WebDynamicRest {
      * @return
      */
     private String iCallService(Request request, UriInfo uriInfo, HttpHeaders httpHeaders) {
-        return null;
+        return "ddd";
     }
 }

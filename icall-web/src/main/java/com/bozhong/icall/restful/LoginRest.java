@@ -128,7 +128,7 @@ public class LoginRest {
             long expireTimeMilSecond = expireTimeSecond * 1000;
             myRedisClusterForHessian.putForStr(ICallConstants.ICALL_CENTER_USERNAME_PREFIX + token,
                     userName, expireTimeMilSecond);
-            Cookie cookie = new Cookie("document_token", token);
+            Cookie cookie = new Cookie("iCall_token", token);
             cookie.setMaxAge(expireTimeSecond);
             cookie.setPath("/");
             EWebServletContext.getEWebContext().getResponse().addCookie(cookie);
