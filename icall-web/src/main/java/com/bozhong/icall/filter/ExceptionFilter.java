@@ -2,8 +2,8 @@ package com.bozhong.icall.filter;
 
 
 import com.bozhong.common.util.ResultMessageBuilder;
-import com.bozhong.icall.common.ImanagerLogger;
-import com.bozhong.icall.util.ImanagerException;
+import com.bozhong.icall.common.ICallLogger;
+import com.bozhong.icall.util.ICallException;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +23,9 @@ public class ExceptionFilter implements Filter {
         try {
             chain.doFilter(sReq, sRes);
         } catch (Exception e) {
-            ImanagerLogger.getSysLogger().error(e.getMessage());
-            if (e instanceof ImanagerException) {
-                ImanagerException documentException = (ImanagerException) e;
+            ICallLogger.getSysLogger().error(e.getMessage());
+            if (e instanceof ICallException) {
+                ICallException documentException = (ICallException) e;
                 PrintWriter writer = response.getWriter();
                 writer.write(ResultMessageBuilder.build(false,
                         documentException.getErrorCode(), documentException.getErrorMessage()).toJSONString());

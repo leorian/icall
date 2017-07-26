@@ -3,45 +3,45 @@ package com.bozhong.icall.util;
 /**
  * Created by xiezg@317hu.com on 2017/4/25 0025.
  */
-public class ImanagerException extends RuntimeException {
+public class ICallException extends RuntimeException {
     private String errorCode;
 
     private String errorMessage;
 
     private String detailErrorMessage;
 
-    public ImanagerException(String errorCode, String errorMessage, String detailErrorMessage, Throwable e) {
+    public ICallException(String errorCode, String errorMessage, String detailErrorMessage, Throwable e) {
         super(errorCode, e);
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
         this.detailErrorMessage = detailErrorMessage;
     }
 
-    public ImanagerException(String errorCode, String errorMessage, String detailErrorMessage) {
+    public ICallException(String errorCode, String errorMessage, String detailErrorMessage) {
         super(errorCode);
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
         this.detailErrorMessage = detailErrorMessage;
     }
 
-    public ImanagerException(String errorCode, String errorMessage, Throwable e) {
+    public ICallException(String errorCode, String errorMessage, Throwable e) {
         super(errorCode, e);
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }
 
-    public ImanagerException(String errorCode, String errorMessage) {
+    public ICallException(String errorCode, String errorMessage) {
         super(errorCode);
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }
 
-    public ImanagerException(String errorCode, Throwable e) {
+    public ICallException(String errorCode, Throwable e) {
         super(errorCode, e);
         this.errorCode = errorCode;
     }
 
-    public ImanagerException(String errorCode) {
+    public ICallException(String errorCode) {
         super(errorCode);
         this.errorCode = errorCode;
     }

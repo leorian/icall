@@ -6,7 +6,7 @@ import com.bozhong.insist.common.InsistUtil;
 /**
  * Created by xiezg@317hu.com on 2017/5/24 0024.
  */
-public class ImanagerUtil {
+public class ICallUtil {
 
     /**
      * @param group

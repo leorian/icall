@@ -2,8 +2,8 @@ package com.bozhong.icall.restful;
 
 import com.bozhong.common.util.ResultMessageBuilder;
 import com.bozhong.common.util.StringUtil;
-import com.bozhong.icall.common.ImanagerErrorEnum;
-import com.bozhong.icall.tools.ImanagerUtil;
+import com.bozhong.icall.common.ICallErrorEnum;
+import com.bozhong.icall.tools.ICallUtil;
 import com.bozhong.insist.common.InsistUtil;
 import com.bozhong.insist.consumer.InsistConsumerMeta;
 import com.bozhong.insist.module.ServiceMeta;
@@ -66,8 +66,8 @@ public class InsistRest {
         //分组
         List<String> groupPaths = getChildrenPath(InsistUtil.getProviderZkPath());
         if (CollectionUtils.isEmpty(groupPaths)) {
-            return ResultMessageBuilder.build(false, ImanagerErrorEnum.E10002.getError(),
-                    ImanagerErrorEnum.E10002.getMsg()).
+            return ResultMessageBuilder.build(false, ICallErrorEnum.E10002.getError(),
+                    ICallErrorEnum.E10002.getMsg()).
                     toJSONString();
         }
 
@@ -79,7 +79,7 @@ public class InsistRest {
 
         for (String groupPath : groupPaths) {
             //服务
-            List<String> serviceGroupPaths = getChildrenPath(ImanagerUtil.getProviderGroupPath(groupPath));
+            List<String> serviceGroupPaths = getChildrenPath(ICallUtil.getProviderGroupPath(groupPath));
             if (CollectionUtils.isEmpty(serviceGroupPaths)) {
                 continue;
             }
@@ -92,7 +92,7 @@ public class InsistRest {
 
             for (String serviceGroupPath : serviceGroupPaths) {
                 //版本
-                List<String> versionServiceGroupPaths = getChildrenPath(ImanagerUtil.
+                List<String> versionServiceGroupPaths = getChildrenPath(ICallUtil.
                         getProviderGroupServiceNamePath(groupPath, serviceGroupPath));
                 if (CollectionUtils.isEmpty(versionServiceGroupPaths)) {
                     continue;
@@ -100,7 +100,7 @@ public class InsistRest {
 
                 for (String versionServiceGroupPath : versionServiceGroupPaths) {
                     //IP端口号
-                    List<String> versionServiceGroupPathAndIpPorts = getChildrenPath(ImanagerUtil.
+                    List<String> versionServiceGroupPathAndIpPorts = getChildrenPath(ICallUtil.
                             getProviderServiceNameGroupVersionZkPath(groupPath, serviceGroupPath, versionServiceGroupPath));
                     if (CollectionUtils.isEmpty(versionServiceGroupPathAndIpPorts)) {
                         continue;
@@ -119,7 +119,7 @@ public class InsistRest {
                     //节点数据
                     for (String versionServiceGroupPathAndIpPort :
                             versionServiceGroupPathAndIpPorts) {
-                        String serviceMetaStr = getPathData(ImanagerUtil.getProviderIpPortPath(groupPath, serviceGroupPath,
+                        String serviceMetaStr = getPathData(ICallUtil.getProviderIpPortPath(groupPath, serviceGroupPath,
                                 versionServiceGroupPath, versionServiceGroupPathAndIpPort));
                         if (StringUtil.isNotBlank(serviceMetaStr)) {
                             serviceMetaList.add(InsistUtil.jsonToServiceMeta(serviceMetaStr));
@@ -158,8 +158,8 @@ public class InsistRest {
         //分组
         List<String> groupPaths = getChildrenPath(InsistUtil.getConsumerZkPath());
         if (CollectionUtils.isEmpty(groupPaths)) {
-            return ResultMessageBuilder.build(false, ImanagerErrorEnum.E10002.getError(),
-                    ImanagerErrorEnum.E10002.getMsg()).
+            return ResultMessageBuilder.build(false, ICallErrorEnum.E10002.getError(),
+                    ICallErrorEnum.E10002.getMsg()).
                     toJSONString();
         }
 
@@ -171,7 +171,7 @@ public class InsistRest {
 
         for (String groupPath : groupPaths) {
             //服务
-            List<String> serviceGroupPaths = getChildrenPath(ImanagerUtil.getConsumerGroupPath(groupPath));
+            List<String> serviceGroupPaths = getChildrenPath(ICallUtil.getConsumerGroupPath(groupPath));
             if (CollectionUtils.isEmpty(serviceGroupPaths)) {
                 continue;
             }
@@ -184,7 +184,7 @@ public class InsistRest {
 
             for (String serviceGroupPath : serviceGroupPaths) {
                 //版本
-                List<String> versionServiceGroupPaths = getChildrenPath(ImanagerUtil.
+                List<String> versionServiceGroupPaths = getChildrenPath(ICallUtil.
                         getConsumerGroupServiceNamePath(groupPath, serviceGroupPath));
                 if (CollectionUtils.isEmpty(versionServiceGroupPaths)) {
                     continue;
@@ -192,7 +192,7 @@ public class InsistRest {
 
                 for (String versionServiceGroupPath : versionServiceGroupPaths) {
                     //IP端口号
-                    List<String> versionServiceGroupPathAndIpPorts = getChildrenPath(ImanagerUtil.
+                    List<String> versionServiceGroupPathAndIpPorts = getChildrenPath(ICallUtil.
                             getConsumerServiceNameGroupVersionZkPath(groupPath, serviceGroupPath, versionServiceGroupPath));
                     if (CollectionUtils.isEmpty(versionServiceGroupPathAndIpPorts)) {
                         continue;
@@ -212,7 +212,7 @@ public class InsistRest {
                     //节点数据
                     for (String versionServiceGroupPathAndIpPort :
                             versionServiceGroupPathAndIpPorts) {
-                        String serviceMetaStr = getPathData(ImanagerUtil.getConsumerIpPortPath(groupPath, serviceGroupPath,
+                        String serviceMetaStr = getPathData(ICallUtil.getConsumerIpPortPath(groupPath, serviceGroupPath,
                                 versionServiceGroupPath, versionServiceGroupPathAndIpPort));
                         if (StringUtil.isNotBlank(serviceMetaStr)) {
                             insistConsumerMetaList.add(InsistUtil.jsonToClientMeta(serviceMetaStr));

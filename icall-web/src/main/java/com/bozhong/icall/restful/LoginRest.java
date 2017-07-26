@@ -5,7 +5,7 @@ import com.bozhong.common.util.StringUtil;
 import com.bozhong.config.common.LDAPConnectionConfig;
 import com.bozhong.config.exception.ConfigCenterLoginCodeEnum;
 import com.bozhong.icall.common.ICallConstants;
-import com.bozhong.icall.common.ImanagerErrorEnum;
+import com.bozhong.icall.common.ICallErrorEnum;
 import com.bozhong.icall.util.RSAHelper;
 import com.bozhong.myredis.MyRedisClusterForHessian;
 import com.google.gson.Gson;
@@ -87,7 +87,7 @@ public class LoginRest {
 
         Map keyMap = myRedisClusterForHessian.get(ICallConstants.ICALL_CENTER_PUBLIC_PRIVATE_KEY, HashMap.class);
         if (keyMap == null) {
-            return gson.toJson(ImanagerErrorEnum.E10001.toString());
+            return gson.toJson(ICallErrorEnum.E10001.toString());
         }
 
         try {
